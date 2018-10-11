@@ -657,6 +657,7 @@
                                 Math.round(rect.left + x),
                             ];
 
+                            // **NOTE**: Disabled in sematext fork. We don't use height/width and this is error prone
                             // If this is an image, it has a naturalHeight & naturalWidth
                             // if these are different from its display height and width, we should report that
                             // because it indicates scaling in HTML
@@ -664,21 +665,21 @@
                             // We get the actual physical dimensions by assigning the image to an uncorrected Image
                             // object.
                             // This should load from in-memory cache, so there should be no extra load.
-                            var realImg = new Image();
-                            realImg.onload = function() {
-                                if (
-                                    (realImg.naturalHeight || realImg.naturalWidth)
-                                    &&
-                                    (
-                                        entries[src][0] !== realImg.naturalHeight
-                                        ||
-                                        entries[src][1] !== realImg.naturalWidth
-                                    )
-                                ) {
-                                    entries[src].push(realImg.naturalHeight, realImg.naturalWidth);
-                                }
-                            };
-                            realImg.src = el.src;
+                            //var realImg = new Image();
+                            //realImg.onload = function() {
+                            //    if (
+                            //        (realImg.naturalHeight || realImg.naturalWidth)
+                            //        &&
+                            //        (
+                            //            entries[src][0] !== realImg.naturalHeight
+                            //            ||
+                            //            entries[src][1] !== realImg.naturalWidth
+                            //        )
+                            //    ) {
+                            //        entries[src].push(realImg.naturalHeight, realImg.naturalWidth);
+                            //    }
+                            //};
+                            //realImg.src = el.src;
 
                         }
                     }
